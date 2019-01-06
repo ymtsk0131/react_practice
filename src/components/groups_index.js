@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import _ from 'lodash'
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import { readGroups } from '../actions'
 
@@ -16,7 +16,9 @@ class GroupsIndex extends Component {
         <ul>
           { _.map(this.props.groups, group => (
             <li key={group.id}>
-              {group.name}
+              <Link to={`/groups/${group.id}/messages`}>
+                {group.name}
+              </Link>
             </li>
           )) }
         </ul>
