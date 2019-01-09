@@ -7,6 +7,7 @@ export const UPDATE_EVENT = 'UPDATE_EVENT'
 export const DELETE_EVENT = 'DELETE_EVENT'
 export const READ_GROUPS = 'READ_GROUPS'
 export const READ_MESSAGES = 'READ_MESSAGES'
+export const READ_GROUP = 'READ_GROUP'
 
 const ROOT_URL = 'https://udemy-utils.herokuapp.com/api/v1'
 const QUERYSTRING = '?token=token123'
@@ -45,6 +46,10 @@ export const readGroups = () => async dispatch => {
 
 export const readMessages = id => async dispatch => {
     const response = await axios.get(`${ROOT_URL2}/groups/${id}/messages${QUERYSTRING}`)
-    console.log(response)
     dispatch({ type: READ_MESSAGES, response })
+}
+
+export const readGroup = id => async dispatch => {
+    const response = await axios.get(`${ROOT_URL2}/groups/${id}${QUERYSTRING}`)
+    dispatch({ type: READ_GROUP, response })
 }
