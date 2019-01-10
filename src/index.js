@@ -12,6 +12,8 @@ import reducer from './reducers'
 import EventsIndex from './components/events_index';
 import EventsNew from './components/events_new';
 import EventsShow from './components/events_show';
+import GroupsIndex from './components/groups_index';
+import MessagesIndex from './components/messages_index';
 import registerServiceWorker from './registerServiceWorker';
 
 const enhancer = process.env.NODE_ENV === 'development' ?
@@ -25,8 +27,9 @@ ReactDOM.render(
                 <Switch>
                     <Route path="/events/new" component={EventsNew} />
                     <Route path="/events/:id" component={EventsShow} />
-                    <Route exact path="/" component={EventsIndex} />
                     <Route exact path="/events" component={EventsIndex} />
+                    <Route exact path="/" component={GroupsIndex} />
+                    <Route path="/groups/:id/messages" component={MessagesIndex} />
                 </Switch>
             </BrowserRouter>
         </Provider>
